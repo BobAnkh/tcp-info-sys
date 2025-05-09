@@ -95,12 +95,3 @@ commit_parsers = [
   { body = ".*security", group = "<!-- 8 -->Security" },
   { message = "^revert", group = "<!-- 9 -->Revert" },
 ]
-
-[[package]]
-name = "mito"
-changelog_include = ["netmito"]
-
-[[package]]
-name = "netmito"
-changelog_update = false
-
