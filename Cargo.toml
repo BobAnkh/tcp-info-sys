@@ -1,0 +1,18 @@
+[package]
+name = "tcp-info-sys"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "A library to get TCP_INFO from the kernel for a TCP socket"
+readme = "README.md"
+homepage = "https://github.com/bobankh/tcp-info-sys"
+repository = "https://github.com/bobankh/tcp-info-sys"
+keywords = ["network", "data-structures", "socket", "bindings"]
+documentation = "https://docs.rs/tcp-info-sys"
+categories = ["network-programming", "data-structures", "external-ffi-bindings"]
+
+[build-dependencies]
+bindgen = "0.71.1"
+
+[dependencies]
+libc = "0.2.172"
