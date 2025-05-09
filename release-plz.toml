@@ -13,7 +13,7 @@ git_tag_enable = true
 git_release_enable = false
 # labels for the release PR
 pr_labels = ["release"]
-pr_name = "chore(release): prepare for v{{ version }}"
+pr_name = "chore: release v{{ version }}"
 # disallow updating repositories with uncommitted changes
 allow_dirty = true
 # disallow packaging with uncommitted changes
@@ -86,7 +86,7 @@ commit_parsers = [
   { message = "^refactor", group = "<!-- 2 -->Refactor" },
   { message = "^style", group = "<!-- 5 -->Styling" },
   { message = "^test", group = "<!-- 6 -->Testing" },
-  { message = "^chore\\(release\\): prepare for", skip = true },
+  { message = "^chore: release", skip = true },
   { message = "^chore\\(deps.*\\)", skip = true },
   { message = "^chore\\(pr\\)", skip = true },
   { message = "^chore\\(pull\\)", skip = true },
