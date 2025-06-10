@@ -12,7 +12,7 @@ documentation = "https://docs.rs/tcp-info-sys"
 categories = ["network-programming", "data-structures", "external-ffi-bindings"]
 
 [build-dependencies]
-bindgen = "0.71.1"
+bindgen = "0.72.0"
 
 [dependencies]
 libc = "0.2.172"
