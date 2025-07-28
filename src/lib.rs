@@ -14,7 +14,7 @@ mod tcp_info {
 }
 
 /// The binding to the `tcp_info` struct in the kernel
-pub use tcp_info::tcp_info as TcpInfo;
+pub use tcp_info::TcpInfo;
 
 /// Get TCP_INFO for a socket (with its fd)
 ///

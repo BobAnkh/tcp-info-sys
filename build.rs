@@ -1,8 +1,10 @@
 use std::{env, path::Path};
 
-use bindgen::{EnumVariation, builder};
+use bindgen_helpers::{EnumVariation, Renamer, builder};
 
 fn main() {
+    let mut renamer = Renamer::new(false);
+    renamer.rename_item("tcp_info", "TcpInfo");
     let bindings = builder()
         .use_core()
         .layout_tests(false)
@@ -11,6 +13,12 @@ fn main() {
         .prepend_enum_name(false)
         .header("/usr/include/linux/tcp.h")
         .allowlist_type("tcp_info")
+        .derive_hash(true)
+        .derive_eq(true)
+        .derive_partialeq(true)
+        .derive_ord(true)
+        .derive_partialord(true)
+        .parse_callbacks(Box::new(renamer))
         .generate()
         .expect("Failed to build tcp_info bindings");
 

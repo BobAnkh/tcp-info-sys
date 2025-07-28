@@ -13,6 +13,7 @@ categories = ["network-programming", "data-structures", "external-ffi-bindings"]
 
 [build-dependencies]
 bindgen = "0.72.0"
+bindgen_helpers = "0.5.0"
 
 [dependencies]
-libc = "0.2.172"
+libc = "0.2.174"
