@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2](https://github.com/BobAnkh/tcp-info-sys/compare/v0.1.1...v0.1.2) - 2026-02-27
+
+### Features
+
+- Allow specifying paths to linux headers with env var ([#4](https://github.com/BobAnkh/tcp-info-sys/pull/4)) - ([2612297](https://github.com/stack-rs/mitosis/commit/261229702883d1fa54f6f21ffe85b81f12c1986b))
+
+
 ## [0.1.1](https://github.com/BobAnkh/tcp-info-sys/compare/v0.1.0...v0.1.1) - 2025-07-28
 
 ### Build
