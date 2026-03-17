@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3](https://github.com/BobAnkh/tcp-info-sys/compare/v0.1.2...v0.1.3) - 2026-03-17
+
+### Features
+
+- Add serde feature support - ([31ac15f](https://github.com/stack-rs/mitosis/commit/31ac15fd829478c4d25224e26925b5be1ae72a63))
+
+
 ## [0.1.2](https://github.com/BobAnkh/tcp-info-sys/compare/v0.1.1...v0.1.2) - 2026-02-27
 
 ### Features
