@@ -93,12 +93,14 @@ mod tests {
     #[cfg(feature = "serde")]
     #[test]
     fn serde_roundtrip_json() {
-        // Use Default so this compiles on any kernel version regardless of which
-        // fields exist. Only poke fields that have been present since early kernels.
-        let mut original = TcpInfo::default();
-        original.tcpi_state = 1;
-        original.tcpi_rtt = 5000;
-        original.tcpi_rttvar = 1000;
+        // Use struct update syntax so this compiles on any kernel version regardless
+        // of which fields exist. Only set fields present since early kernels.
+        let mut original = TcpInfo {
+            tcpi_state: 1,
+            tcpi_rtt: 5000,
+            tcpi_rttvar: 1000,
+            ..TcpInfo::default()
+        };
         // Set bitfields via generated setters rather than the raw struct literal
         original.set_tcpi_snd_wscale(7);
         original.set_tcpi_rcv_wscale(8);
