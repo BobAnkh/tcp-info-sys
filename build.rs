@@ -42,6 +42,7 @@ fn main() {
             linux_headers_dir.join("linux").join("tcp.h").display()
         ))
         .allowlist_type("tcp_info")
+        .derive_default(true)
         .derive_hash(true)
         .derive_eq(true)
         .derive_partialeq(true)
