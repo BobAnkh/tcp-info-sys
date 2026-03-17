@@ -93,64 +93,17 @@ mod tests {
     #[cfg(feature = "serde")]
     #[test]
     fn serde_roundtrip_json() {
-        // Build a TcpInfo with known values
-        let original = TcpInfo {
-            tcpi_state: 1,
-            tcpi_ca_state: 2,
-            tcpi_retransmits: 3,
-            tcpi_probes: 4,
-            tcpi_backoff: 5,
-            tcpi_options: 6,
-            _bitfield_align_1: [],
-            _bitfield_1: TcpInfo::new_bitfield_1(7, 8, 1, 2),
-            tcpi_rto: 100,
-            tcpi_ato: 200,
-            tcpi_snd_mss: 1460,
-            tcpi_rcv_mss: 1460,
-            tcpi_unacked: 0,
-            tcpi_sacked: 0,
-            tcpi_lost: 0,
-            tcpi_retrans: 0,
-            tcpi_fackets: 0,
-            tcpi_last_data_sent: 10,
-            tcpi_last_ack_sent: 11,
-            tcpi_last_data_recv: 12,
-            tcpi_last_ack_recv: 13,
-            tcpi_pmtu: 1500,
-            tcpi_rcv_ssthresh: 65535,
-            tcpi_rtt: 5000,
-            tcpi_rttvar: 1000,
-            tcpi_snd_ssthresh: 2147483647,
-            tcpi_snd_cwnd: 10,
-            tcpi_advmss: 1448,
-            tcpi_reordering: 3,
-            tcpi_rcv_rtt: 0,
-            tcpi_rcv_space: 87380,
-            tcpi_total_retrans: 0,
-            tcpi_pacing_rate: 1_000_000,
-            tcpi_max_pacing_rate: u64::MAX,
-            tcpi_bytes_acked: 12345,
-            tcpi_bytes_received: 67890,
-            tcpi_segs_out: 50,
-            tcpi_segs_in: 60,
-            tcpi_notsent_bytes: 0,
-            tcpi_min_rtt: 4000,
-            tcpi_data_segs_in: 55,
-            tcpi_data_segs_out: 45,
-            tcpi_delivery_rate: 500_000,
-            tcpi_busy_time: 1000,
-            tcpi_rwnd_limited: 0,
-            tcpi_sndbuf_limited: 0,
-            tcpi_delivered: 44,
-            tcpi_delivered_ce: 0,
-            tcpi_bytes_sent: 99999,
-            tcpi_bytes_retrans: 0,
-            tcpi_dsack_dups: 0,
-            tcpi_reord_seen: 0,
-            tcpi_rcv_ooopack: 0,
-            tcpi_snd_wnd: 65535,
-        };
-        let _ = original; // Silence unused warning if fields differ on older kernels
+        // Use Default so this compiles on any kernel version regardless of which
+        // fields exist. Only poke fields that have been present since early kernels.
+        let mut original = TcpInfo::default();
+        original.tcpi_state = 1;
+        original.tcpi_rtt = 5000;
+        original.tcpi_rttvar = 1000;
+        // Set bitfields via generated setters rather than the raw struct literal
+        original.set_tcpi_snd_wscale(7);
+        original.set_tcpi_rcv_wscale(8);
+        original.set_tcpi_delivery_rate_app_limited(1);
+        original.set_tcpi_fastopen_client_fail(2);
 
         let json = serde_json::to_string(&original).expect("serialize failed");
         let restored: TcpInfo = serde_json::from_str(&json).expect("deserialize failed");
