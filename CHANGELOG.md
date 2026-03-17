@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4](https://github.com/BobAnkh/tcp-info-sys/compare/v0.1.3...v0.1.4) - 2026-03-17
+
+### Features
+
+- Add default trait - ([1640a44](https://github.com/stack-rs/mitosis/commit/1640a4429e2ec5055cbdcda2a862989006706048))
+
+### Styling
+
+- Fix clippy errors - ([984ad56](https://github.com/stack-rs/mitosis/commit/984ad56693e2ff4143a3712ea868a9d8a9d9ecca))
+
+### Testing
+
+- Fix serde test with default value - ([9b147f4](https://github.com/stack-rs/mitosis/commit/9b147f4bf4bdb42cb34541c9e734ee6a4c653994))
+
+
 ## [0.1.3](https://github.com/BobAnkh/tcp-info-sys/compare/v0.1.2...v0.1.3) - 2026-03-17
 
 ### Features
