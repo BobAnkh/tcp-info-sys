@@ -14,7 +14,7 @@ categories = ["network-programming", "data-structures", "external-ffi-bindings"]
 [build-dependencies]
 bindgen = "0.72.0"
 bindgen_helpers = "0.6.1"
-syn = { version = "2", features = ["full"] }
+syn = { version = "3", features = ["full"] }
 quote = "1"
 proc-macro2 = "1"
 
